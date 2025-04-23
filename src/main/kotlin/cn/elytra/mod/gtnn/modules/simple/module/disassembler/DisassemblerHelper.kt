@@ -383,6 +383,9 @@ object DisassemblerHelper {
 			// endregion transformer
 			add(GTItemStack(GTModHandler.getModItem(Mods.AppliedEnergistics2.ID, "item.ItemMultiPart", 1L, 36)))
 			add(GTItemStack(GTModHandler.getModItem(Mods.AppliedEnergistics2.ID, "item.ItemMultiPart", 1L, 536)))
+
+			// Radiation Proof Plate
+			add(GTItemStack(GTModHandler.getModItem(Mods.GoodGenerator.ID, "radiationProtectionPlate", 1L, 0)))
 		}
 	}
 
