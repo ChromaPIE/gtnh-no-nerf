@@ -18,7 +18,6 @@ class MTEDisassembler : MTEBasicMachineWithRecipe {
 			.minInputs(1, 0)
 			.slotOverlays(SlotOverlayGetter { index: Int, isFluid: Boolean, isOutput: Boolean, isSpecial: Boolean -> if(!isFluid && !isOutput) GTUITextures.OVERLAY_SLOT_CIRCUIT else null })
 			.progressBar(GTUITextures.PROGRESSBAR_ASSEMBLE)
-			.disableOptimize()
 			.build()
 
 		val MachineCraftRecipe = arrayOf<Any>(

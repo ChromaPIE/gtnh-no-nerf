@@ -10,10 +10,10 @@ import gregtech.api.util.GTRecipeBuilder
 import gregtech.api.util.GTRecipeConstants
 import gregtech.api.util.GTUtility
 import gtPlusPlus.api.recipe.GTPPRecipeMaps
-import gtPlusPlus.core.item.chemistry.GenericChem
 import gtPlusPlus.core.material.MaterialsElements
 import gtPlusPlus.core.recipe.common.CI
 import gtPlusPlus.core.util.minecraft.ItemUtils
+import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList
 import net.minecraft.item.ItemStack
 import net.minecraftforge.common.config.Configuration
 
@@ -48,9 +48,9 @@ object ModWaterlineSkip : IModule {
 	}
 
 	override fun registerGregTechItems() {
-		LimpidWaterCatalyst = ItemUtils.simpleMetaStack(GenericChem.mGenericChemItem1, limpidWaterCatalystMetaValue, 1)
+		LimpidWaterCatalyst = GTNNCataList.LimpidWaterCatalyst.get(1)!!
 		FlawlessWaterCatalyst =
-			ItemUtils.simpleMetaStack(GenericChem.mGenericChemItem1, flawlessWaterCatalystMetaValue, 1)
+			GTNNCataList.FlawlessWaterCatalyst.get(1)!!
 		CatalystInject.registerAddedCatalyst(LimpidWaterCatalyst)
 		CatalystInject.registerAddedCatalyst(FlawlessWaterCatalyst)
 		ItemUtils.addItemToOreDictionary(LimpidWaterCatalyst, "catalystLimpidWater")

@@ -307,9 +307,10 @@ class MTEProcessingArray : MTEExtendedPowerMultiBlockBase<MTEProcessingArray>, I
 		aX: Float,
 		aY: Float,
 		aZ: Float,
+		aTool: ItemStack
 	) {
 		if(aPlayer.isSneaking) {
-			super.onScrewdriverRightClick(side, aPlayer, aX, aY, aZ)
+			super.onScrewdriverRightClick(side, aPlayer, aX, aY, aZ, aTool)
 		} else {
 			inputSeparation = !inputSeparation
 			GTUtility.sendChatToPlayer(
