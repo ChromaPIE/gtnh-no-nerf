@@ -1,9 +1,9 @@
 package cn.elytra.mod.gtnn.util
 
-import gregtech.api.enums.GTValues
 import gregtech.api.util.GTLanguageManager
 import gregtech.api.util.GTModHandler
 import gregtech.api.util.GTOreDictUnificator
+import gregtech.api.util.GTRecipeBuilder
 import gregtech.api.util.GTUtility
 import net.minecraft.item.ItemStack
 
@@ -24,7 +24,7 @@ fun ItemStack.copyOf(amount: Int = 1): ItemStack {
 }
 
 fun ItemStack.copyOfWildcard(amount: Int = 1): ItemStack {
-	return GTUtility.copyAmountAndMetaData(amount, GTValues.W.toInt(), GTOreDictUnificator.get(this))
+	return GTUtility.copyAmountAndMetaData(amount, GTRecipeBuilder.WILDCARD, GTOreDictUnificator.get(this))
 }
 
 fun ItemStack.copyOfUndamaged(amount: Int = 1): ItemStack {

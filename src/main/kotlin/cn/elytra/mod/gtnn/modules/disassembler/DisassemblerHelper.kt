@@ -312,12 +312,12 @@ object DisassemblerHelper {
 	private fun getCheapestCircuitOrNull(first: Materials): ItemStack? {
 		return when(first) {
 			Materials.ULV -> ItemList.NandChip.get(1)
-			Materials.LV -> ItemList.Circuit_Microprocessor.get(1)
+			Materials.LV -> ItemList.Circuit_Basic.get(1)
 			Materials.MV -> ItemList.Circuit_Good.get(1)
-			Materials.Advanced -> ItemList.Circuit_Advanced.get(1)
+			Materials.HV -> ItemList.Circuit_Advanced.get(1)
 			Materials.EV -> ItemList.Circuit_Data.get(1)
 			Materials.LuV -> ItemList.Circuit_Master.get(1)
-			Materials.Ultimate -> ItemList.Circuit_Quantummainframe.get(1)
+			Materials.ZPM -> ItemList.Circuit_Quantummainframe.get(1)
 			Materials.SuperconductorUHV -> ItemList.Circuit_Crystalmainframe.get(1)
 			Materials.UHV -> ItemList.Circuit_Wetwaremainframe.get(1)
 			Materials.UEV -> ItemList.Circuit_Biomainframe.get(1)
