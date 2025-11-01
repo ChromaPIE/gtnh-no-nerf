@@ -168,7 +168,7 @@ object DisassemblerHelper {
 							replaceCheaperOrNull(thisMaterial, dataAgainst.mMaterial.mMaterial)
 						if(cheaper != null) {
 							retOutputs[idx] = GTOreDictUnificator.get(
-								OrePrefixes.valueOf(itemDataInSlotIdx.mPrefix.name),
+								itemDataInSlotIdx.mPrefix,
 								cheaper,
 								itemInSlotIdx.stackSize.toLong(),
 							)
@@ -180,7 +180,7 @@ object DisassemblerHelper {
 						val nonAny = replaceAnyOrNull(thisMaterial)
 						if(nonAny != null) {
 							retOutputs[idx] = GTOreDictUnificator.get(
-								OrePrefixes.valueOf(itemDataInSlotIdx.mPrefix.name),
+								itemDataInSlotIdx.mPrefix,
 								nonAny,
 								itemInSlotIdx.stackSize.toLong(),
 							)
@@ -195,7 +195,7 @@ object DisassemblerHelper {
 			val unprocessed = getUnprocessedMaterials(thisMaterial)
 			if(unprocessed != null) {
 				retOutputs[idx] = GTOreDictUnificator.get(
-					OrePrefixes.valueOf(itemDataInSlotIdx.mPrefix.name),
+					itemDataInSlotIdx.mPrefix,
 					unprocessed,
 					itemInSlotIdx.stackSize.toLong(),
 				)
@@ -252,12 +252,12 @@ object DisassemblerHelper {
 			first == Materials.WroughtIron && second == Materials.Iron -> second
 			first == Materials.Aluminium && second == Materials.WroughtIron -> Materials.Iron
 			first == Materials.Aluminium && second == Materials.Steel -> second
-			first == Materials.Polytetrafluoroethylene && second == Materials.Plastic -> second
-			first == Materials.Polybenzimidazole && second == Materials.Plastic -> second
-			first == Materials.Polystyrene && second == Materials.Plastic -> second
-			first == Materials.Silicone && second == Materials.Plastic -> second
+			first == Materials.Polytetrafluoroethylene && second == Materials.Polyethylene -> second
+			first == Materials.Polybenzimidazole && second == Materials.Polyethylene -> second
+			first == Materials.Polystyrene && second == Materials.Polyethylene -> second
+			first == Materials.Silicon && second == Materials.Polyethylene -> second
 			first == Materials.NetherQuartz || first == Materials.CertusQuartz && second == Materials.Quartzite -> second
-			first == Materials.Plastic && second == Materials.Wood -> second
+			first == Materials.Polyethylene && second == Materials.Wood -> second
 			first == Materials.Diamond && second == Materials.Glass -> second
 			else -> null
 		}
