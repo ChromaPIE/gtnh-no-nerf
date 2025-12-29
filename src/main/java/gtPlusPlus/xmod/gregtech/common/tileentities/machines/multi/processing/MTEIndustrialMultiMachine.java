@@ -166,7 +166,7 @@ public class MTEIndustrialMultiMachine extends GTPPMultiBlockBase<MTEIndustrialM
 					buildHatchAdder(MTEIndustrialMultiMachine.class)
 						.atLeast(InputBus, OutputBus, Maintenance, Energy, Muffler, InputHatch, OutputHatch)
 						.casingIndex(getTextureIndex())
-						.dot(1)
+						.hint(1)
 						.buildAndChain(onElementPass(x -> ++x.mCasing, ofBlock(ModBlocks.blockCasings3Misc, 2))))
 				.build();
 		}

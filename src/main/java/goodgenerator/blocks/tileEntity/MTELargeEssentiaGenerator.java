@@ -31,7 +31,6 @@ import goodgenerator.crossmod.thaumcraft.LargeEssentiaEnergyData;
 import goodgenerator.items.GGMaterial;
 import goodgenerator.loader.Loaders;
 import goodgenerator.util.DescTextLocalization;
-import goodgenerator.util.ItemRefer;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
@@ -203,7 +202,7 @@ public class MTELargeEssentiaGenerator extends MTETooltipMultiBlockBaseEM
 								gregtech.api.enums.HatchElement.Maintenance,
 								gregtech.api.enums.HatchElement.InputHatch)
 							.casingIndex(1536)
-							.dot(1)
+							.hint(1)
 							.build(),
 						ofBlock(Loaders.magicCasing, 0),
 						ofSpecificTileAdder(
@@ -255,30 +254,19 @@ public class MTELargeEssentiaGenerator extends MTETooltipMultiBlockBaseEM
 	public long getPerAspectEnergy(Aspect aspect) {
 		int type = LargeEssentiaEnergyData.getAspectTypeIndex(aspect);
 		if (!isValidEssentia(aspect)) return 0;
-		switch (type) {
-			case 0:
-				return normalEssentia(aspect);
-			case 1:
-				return airEssentia(aspect);
-			case 2:
-				return thermalEssentia(aspect);
-			case 3:
-				return unstableEssentia(aspect);
-			case 4:
-				return victusEssentia(aspect);
-			case 5:
-				return taintedEssentia(aspect);
-			case 6:
-				return mechanicEssentia(aspect);
-			case 7:
-				return spiritEssentia(aspect);
-			case 8:
-				return radiationEssentia(aspect);
-			case 9:
-				return electricEssentia(aspect);
-			default:
-				return 0;
-		}
+		return switch (type) {
+			case 0 -> normalEssentia(aspect);
+			case 1 -> airEssentia(aspect);
+			case 2 -> thermalEssentia(aspect);
+			case 3 -> unstableEssentia(aspect);
+			case 4 -> victusEssentia(aspect);
+			case 5 -> taintedEssentia(aspect);
+			case 6 -> mechanicEssentia(aspect);
+			case 7 -> spiritEssentia(aspect);
+			case 8 -> radiationEssentia(aspect);
+			case 9 -> electricEssentia(aspect);
+			default -> 0;
+		};
 	}
 
 	public long normalEssentia(Aspect aspect) {
@@ -438,7 +426,6 @@ public class MTELargeEssentiaGenerator extends MTETooltipMultiBlockBaseEM
 
 		if (EUt <= voltageLimit) {
 			EUVoltage = EUt;
-			EUAmp = 1;
 			mLeftEnergy = 0;
 		} else {
 			while (EUVoltage * (EUAmp + 1) <= EUt && EUAmp + 1 <= ampLimit) {

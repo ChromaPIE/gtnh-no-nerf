@@ -25,7 +25,6 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
-import cn.elytra.mod.gtnn.client.NNTextures;
 import cn.elytra.mod.gtnn.util.GTNNText;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -99,7 +98,7 @@ public class MTEProcessingArray extends MTEExtendedPowerMultiBlockBase<MTEProces
 					t -> GTStructureUtility.<MTEProcessingArray>buildHatchAdder()
 						.atLeastList(t.getAllowedHatches())
 						.casingIndex(48)
-						.dot(1)
+						.hint(1)
 						.build()),
 				onElementPass(t -> t.mCasingAmount++, ofBlock(GregTechAPI.sBlockCasings4, 0))))
 		.build();
@@ -252,7 +251,7 @@ public class MTEProcessingArray extends MTEExtendedPowerMultiBlockBase<MTEProces
 			protected CheckRecipeResult validateRecipe(@Nonnull GTRecipe recipe) {
 				if (recipe.getMetadataOrDefault(CompressionTierKey.INSTANCE, 0) > 0)
 					return CheckRecipeResultRegistry.NO_RECIPE;
-				if (GTMod.gregtechproxy.mLowGravProcessing && recipe.mSpecialValue == -100
+				if (GTMod.proxy.mLowGravProcessing && recipe.mSpecialValue == -100
 					&& !isValidForLowGravity(recipe, getBaseMetaTileEntity().getWorld().provider.dimensionId)) {
 					return SimpleCheckRecipeResult.ofFailure("high_gravity");
 				}
