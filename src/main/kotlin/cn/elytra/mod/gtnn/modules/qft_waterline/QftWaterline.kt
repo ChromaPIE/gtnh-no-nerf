@@ -12,8 +12,6 @@ import gregtech.api.util.GTRecipeConstants
 import gregtech.api.util.GTUtility
 import gtPlusPlus.api.recipe.GTPPRecipeMaps
 import gtPlusPlus.core.material.MaterialsElements
-import gtPlusPlus.core.recipe.common.CI
-import gtPlusPlus.core.util.minecraft.ItemUtils
 import gtPlusPlus.xmod.gregtech.api.enums.GregtechItemList
 import net.minecraft.item.ItemStack
 import net.minecraftforge.oredict.OreDictionary
@@ -41,7 +39,7 @@ object QftWaterline : ModuleDefinitionBase("qft_waterline") {
 		GTValues.RA.stdBuilder()
 			.itemInputs(
 				GTUtility.getIntegratedCircuit(10),
-				CI.getEmptyCatalyst(1),
+				GregtechItemList.EmptyCatalystCarrier.get(1),
 				WerkstoffLoader.Hedenbergit.get(OrePrefixes.lens, 1),
 				GTOreDictUnificator.get(OrePrefixes.nanite, Materials.Silver, 1, false),
 				ItemList.Circuit_Silicon_Wafer6.get(64)
@@ -56,7 +54,7 @@ object QftWaterline : ModuleDefinitionBase("qft_waterline") {
 		GTValues.RA.stdBuilder()
 			.itemInputs(
 				GTUtility.getIntegratedCircuit(10),
-				CI.getEmptyCatalyst(1),
+				GregtechItemList.EmptyCatalystCarrier.get(1),
 				WerkstoffLoader.Hedenbergit.get(OrePrefixes.lens, 64),
 				GTOreDictUnificator.get(OrePrefixes.nanite, Materials.Silver, 64, false),
 				ItemList.Circuit_Silicon_Wafer6.get(64)
